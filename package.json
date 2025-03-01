@@ -7,7 +7,7 @@
     "lint": "nx lint",
     "build": "nx build",
     "test": "npx nx run ng-filters-lib:test",
-    "migrate": "nx migrate latest && npx nx migrate --run-migrations",
+    "migrate": "npx nx migrate latest && npx nx migrate --run-migrations",
     "migrate-ng": "npm install @angular/cli @angular/core @angular/cdk @angular/material && nx migrate --run-migrations"
   },
   "private": true,
@@ -52,7 +52,7 @@
     "@angular-eslint/eslint-plugin": "19.1.0",
     "@angular-eslint/eslint-plugin-template": "19.1.0",
     "@angular-eslint/template-parser": "19.1.0",
-    "@angular/cli": "19.0.0",
+    "@angular/cli": "~19.0.0",
     "@angular/compiler-cli": "19.1.8",
     "@angular/language-service": "19.1.8",
     "@ngrx/eslint-plugin": "19.0.1",
