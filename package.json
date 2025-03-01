@@ -73,7 +73,7 @@
     "@types/node": "18.16.9",
     "@typescript-eslint/eslint-plugin": "^7.17.0",
     "@typescript-eslint/parser": "^7.18.0",
-    "@typescript-eslint/utils": "^7.16.0",
+    "@typescript-eslint/utils": "^8.25.0",
     "autoprefixer": "^10.4.0",
     "browser-sync": "^3.0.0",
     "cypress": "13.13.1",
