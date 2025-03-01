@@ -12,7 +12,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-architects/ngrx-toolkit": "^18.1.1",
+    "@angular-architects/ngrx-toolkit": "^19.1.0",
     "@angular/animations": "19.1.8",
     "@angular/cdk": "19.1.5",
     "@angular/common": "19.1.8",
@@ -40,7 +40,7 @@
     "ngxtension": "^4.0.0",
     "node": "^20.9.0",
     "npm": "^10.8.2",
-    "primeng": "18.0.0-rc.1",
+    "primeng": "^19.0.9",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "0.15.0"
