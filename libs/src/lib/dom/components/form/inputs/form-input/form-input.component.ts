@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormErrorService } from '../../services/form-error.service';
 import { InputType } from '../../models/input.types';
+import { FormServerError } from '../../types';
 
 @Component({
   selector: 'dom-form-input',
@@ -36,12 +37,13 @@ import { InputType } from '../../models/input.types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormInputComponent implements OnInit {
-  #formError = inject(FormErrorService);
+  #formErrorService = inject(FormErrorService);
   control = input.required<AbstractControl<unknown, unknown> | null>();
   name = input.required<string>();
   type = input<InputType>(InputType.TEXT);
   label = input<string | undefined>();
   hint = input<string>();
+  serverError = input<FormServerError>();
 
   messagesMap = input<ValidationErrors>();
 
@@ -51,15 +53,23 @@ export class FormInputComponent implements OnInit {
 
   blurChanged = output<FormControl>();
 
+  constructor() {
+    const error = this.serverError();
+
+    if (error) {
+      this.formControl().setErrors({ serverError: error.message });
+    }
+  }
+
   ngOnInit(): void {
     this.formControl = computed(() => this.control() as FormControl);
 
-    const errorEmitter = this.#formError.createErrorMessageEmitter(
+    const errorEmitter = this.#formErrorService.createErrorMessageEmitter(
       this.messagesMap(),
       (value) => this.message.set(value)
     );
 
-    this.#formError.handleErrorMessage(this.formControl(), errorEmitter);
+    this.#formErrorService.handleErrorMessage(this.formControl(), errorEmitter);
   }
 
   onBlur() {

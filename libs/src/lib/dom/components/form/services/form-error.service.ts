@@ -2,10 +2,9 @@ import {
   Injectable,
   Injector,
   Signal,
-  WritableSignal,
   effect,
-  runInInjectionContext,
-  signal,
+  inject,
+  runInInjectionContext
 } from '@angular/core';
 import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
@@ -18,9 +17,8 @@ import { FormServerError } from '../types';
   providedIn: 'root',
 })
 export class FormErrorService {
-  constructor(private injector: Injector) {}
+  injector = inject(Injector);
 
-  errors: WritableSignal<ValidationErrors> = signal({});
 
   handleServerErrorEffect(
     serverError: Signal<FormServerError | undefined>,
@@ -31,14 +29,14 @@ export class FormErrorService {
         const error = serverError();
 
         if (error) {
-          this.setFormError(form, error);
+          this.#setFormError(form, error);
         }
       },
       { allowSignalWrites: true, injector: this.injector }
     );
   }
 
-  private setFormError(group: FormGroup, error: FormServerError): void {
+  #setFormError(group: FormGroup, error: FormServerError): void {
     if (group !== null && error !== null) {
       const control = group.get(error.control as string);
 
@@ -65,7 +63,7 @@ export class FormErrorService {
       return rxMethod<ValidationErrors>(
         pipe(
           map((errors: ValidationErrors) =>
-            this.getInputErrorMessage(errors, messages)
+            this.#getInputErrorMessage(errors, messages)
           ),
           tap((value: string) => updater(value))
         )
@@ -93,7 +91,7 @@ export class FormErrorService {
     emitter(source$);
   }
 
-  private getInputErrorMessage(
+  #getInputErrorMessage(
     errors: ValidationErrors,
     messages: ValidationErrors | undefined
   ): string {
@@ -114,21 +112,5 @@ export class FormErrorService {
     return '';
   }
 
-  handleErrorMessageMap(group: FormGroup, messages: ValidationErrors) {
-    group.statusChanges.pipe(
-      startWith(group.status),
-      map(() => {
-        const formKeys = Object.keys(group.controls);
-        for (const key of formKeys) {
-          const controlErrors = group.controls[key].errors;
 
-          this.errors.update((value) => ({
-            ...value,
-            ...messages,
-            [key]: { ...controlErrors },
-          }));
-        }
-      })
-    );
-  }
 }

@@ -62,13 +62,13 @@ interface LoginForm {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginFormComponent {
-  #formError = inject(FormErrorService);
+  #formErrorService = inject(FormErrorService);
+  #email = inject(DEFAULT_EMAIL);
 
   public readonly serverError = input<FormServerError>();
 
   public readonly loginFormGroup: FormGroup<LoginForm>;
 
-  #email = inject(DEFAULT_EMAIL);
 
   public readonly errorsMap: { [key: string]: ValidationErrors } = {
     password: {
@@ -99,12 +99,7 @@ export class LoginFormComponent {
 
     this.formKeys = getFormKeys(this.loginFormGroup);
 
-    this.#formError.handleErrorMessageMap(this.loginFormGroup, this.errorsMap);
-
-    this.#formError.handleServerErrorEffect(
-      this.serverError,
-      this.loginFormGroup
-    );
+    
   }
 
   private _setGoogleIcon(): void {
