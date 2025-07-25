@@ -46,8 +46,8 @@ export class LoginPageComponent {
   #injector = inject(Injector);
   #authStore = inject(LOGIN_STORE);
 
-  public readonly showOtp: WritableSignal<boolean>;
-  public readonly serverError: Signal<FormServerError | undefined>;
+  showOtp = signal(false);
+  serverError = this.#authStore.loginError;
 
   constructor() {
     this.showOtp = signal(false);

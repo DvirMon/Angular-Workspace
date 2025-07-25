@@ -86,9 +86,9 @@ export class RegisterFormComponent {
 
   private _buildRegisterForm(): FormGroup<RegisterForm> {
     return inject(NonNullableFormBuilder).group({
-      email: ['DEFAULT_EMAIL', [Validators.required, Validators.email]],
+      email: ['dmezZ@example.com', [Validators.required, Validators.email]],
       password: [
-        '',
+        'djkjdfkdfj',
         [
           Validators.required,
           Validators.minLength(8),

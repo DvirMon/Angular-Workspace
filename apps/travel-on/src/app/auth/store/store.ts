@@ -1,4 +1,3 @@
-// import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { signalStore, withState } from '@ngrx/signals';
 import { initialState } from './auth.state';
@@ -7,7 +6,7 @@ import { withAuthMethods } from './with-auth-methods';
 
 export const AuthStore = signalStore(
   { providedIn: 'root' },
-  withDevtools('auth'),
+  // withDevtools('auth'),
   withState(initialState),
   withAuthMethods(),
   withAuthComputed()

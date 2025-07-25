@@ -28,7 +28,6 @@ export function withAuthMethods<_>() {
         resetService = inject(ResetService),
         registerService = inject(RegisterService),
         signInService = inject(SignInService),
-        userService = inject(UserService),
 
         dialog = inject(DialogService)
       ) => ({
