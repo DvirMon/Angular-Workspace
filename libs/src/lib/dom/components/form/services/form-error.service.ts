@@ -17,7 +17,7 @@ import { FormServerError } from '../types';
   providedIn: 'root',
 })
 export class FormErrorService {
-  injector = inject(Injector);
+  private readonly injector = inject(Injector);
 
 
   handleServerErrorEffect(

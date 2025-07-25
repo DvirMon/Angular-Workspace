@@ -7,12 +7,13 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath.base}"],
       "options": {
-        "outputPath": "public/weather-space/browser",
+        "outputPath": {
+          "base": "public/weather-space"
+        },
         "index": "apps/weather-space/src/index.html",
-        "main": "apps/weather-space/src/main.ts",
         "polyfills": [],
         "tsConfig": "apps/weather-space/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
@@ -21,7 +22,13 @@
           "apps/weather-space/src/assets"
         ],
         "styles": ["apps/weather-space/src//styles/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "browser": "apps/weather-space/src/main.ts",
+        "server": "apps/weather-space/src/main.server.ts",
+        "ssr": {
+          "entry": "apps/weather-space/src/server.ts"
+        },
+        "outputMode": "server"
       },
       "configurations": {
         "production": {
@@ -40,9 +47,7 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
@@ -87,60 +92,6 @@
         "development": {
           "buildTarget": "weather-space:build:development",
           "serveTarget": "weather-space:serve:development"
-        }
-      },
-      "defaultConfiguration": "production"
-    },
-    "server": {
-      "dependsOn": ["build"],
-      "executor": "@angular-devkit/build-angular:server",
-      "options": {
-        "outputPath": "public/weather-space/server",
-        "main": "apps/weather-space/server.ts",
-        "tsConfig": "apps/weather-space/tsconfig.server.json",
-        "inlineStyleLanguage": "scss"
-      },
-      "configurations": {
-        "production": {
-          "outputHashing": "media"
-        },
-        "development": {
-          "buildOptimizer": false,
-          "optimization": false,
-          "sourceMap": true,
-          "extractLicenses": false,
-          "vendorChunk": true
-        }
-      },
-      "defaultConfiguration": "production"
-    },
-    "serve-ssr": {
-      "executor": "@angular-devkit/build-angular:ssr-dev-server",
-      "configurations": {
-        "development": {
-          "browserTarget": "weather-space:build:development",
-          "serverTarget": "weather-space:server:development"
-        },
-        "production": {
-          "browserTarget": "weather-space:build:production",
-          "serverTarget": "weather-space:server:production"
-        }
-      },
-      "defaultConfiguration": "development"
-    },
-    "prerender": {
-      "executor": "@angular-devkit/build-angular:prerender",
-      "options": {
-        "routes": ["/"]
-      },
-      "configurations": {
-        "development": {
-          "browserTarget": "weather-space:build:development",
-          "serverTarget": "weather-space:server:development"
-        },
-        "production": {
-          "browserTarget": "weather-space:build:production",
-          "serverTarget": "weather-space:server:production"
         }
       },
       "defaultConfiguration": "production"

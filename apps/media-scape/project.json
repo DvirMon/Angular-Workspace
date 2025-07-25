@@ -7,12 +7,13 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath.base}"],
       "options": {
-        "outputPath": "dist/apps/media-scape",
+        "outputPath": {
+          "base": "dist/apps/media-scape"
+        },
         "index": "apps/media-scape/src/index.html",
-        "main": "apps/media-scape/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/media-scape/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
@@ -21,7 +22,8 @@
           "apps/media-scape/src/assets"
         ],
         "styles": ["apps/media-scape/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "browser": "apps/media-scape/src/main.ts"
       },
       "configurations": {
         "production": {
@@ -40,9 +42,7 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true

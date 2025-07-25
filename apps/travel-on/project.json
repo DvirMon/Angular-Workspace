@@ -7,33 +7,26 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath.base}"],
       "options": {
-        "outputPath": "public/travel-on",
+        "outputPath": {
+          "base": "public/travel-on"
+        },
         "index": "apps/travel-on/src/index.html",
-        "main": "apps/travel-on/src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/travel-on/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/travel-on/src/favicon.ico",
           "apps/travel-on/src/assets"
         ],
-        "styles": [
-          "apps/travel-on/src/styles.scss"
-        ],
+        "styles": ["apps/travel-on/src/styles.scss"],
         "scripts": [],
         "stylePreprocessorOptions": {
-          "includePaths": [
-            "apps/travel-on/src",
-            "apps/travel-on/src/styles"
-          ]
-        }
+          "includePaths": ["apps/travel-on/src", "apps/travel-on/src/styles"]
+        },
+        "browser": "apps/travel-on/src/main.ts"
       },
       "configurations": {
         "production": {
@@ -58,9 +51,7 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
