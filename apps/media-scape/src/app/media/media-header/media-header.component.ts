@@ -1,25 +1,21 @@
-import { NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbar } from '@angular/material/toolbar';
-import { AppStore } from '../../store/store';
 import { createValueChangesEmitter } from '@dom/components/form/helpers';
-import { SearchInputComponent } from '@dom/components/form/inputs/form-search-input';
+import { AppStore } from '../../store/store';
 
 @Component({
   selector: 'ms-media-header',
   standalone: true,
   imports: [
-    NgIf,
     MatToolbar,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButton,
-    SearchInputComponent,
   ],
   templateUrl: './media-header.component.html',
   styleUrl: './media-header.component.scss',
