@@ -1,18 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es2022",
-    "useDefineForClassFields": false,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "esModuleInterop": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
-  },
-  "paths" : {
-    "@lib/directives/*": [
-      "libs/src//lib/dom/*"
-    ],
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve",
+    "paths": {
+      "@lib/directives/*": ["libs/src//lib/dom/*"]
+    }
   },
   "files": [],
   "include": [],
@@ -29,6 +31,7 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
+    "typeCheckHostBindings": true,
     "strictTemplates": true
   }
 }
