@@ -1,4 +1,3 @@
-import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { computed, inject } from '@angular/core';
 import { signalStore, withComputed } from '@ngrx/signals';
 import { AbstractEvaluate } from 'ng-filters-service/abstract-evaluate';
@@ -12,7 +11,7 @@ import { compareTitle, withSort } from './with-sort.feature';
 
 export const AppStore = signalStore(
   { providedIn: 'root' },
-  withDevtools('store'),
+  // withDevtools('store'),
   withMedia(),
   withFilter(),
   withSort(),

@@ -1,4 +1,3 @@
-import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { computed } from '@angular/core';
 import {
   patchState,
@@ -8,6 +7,7 @@ import {
   withState,
 } from '@ngrx/signals';
 import { addEntity, removeEntity } from '@ngrx/signals/entities';
+import { AutocompleteOption } from '../weather/models/autocomplete-result';
 import { FavoriteEntity } from '../weather/weather-favorite-card/favorite-card.component';
 import { WeatherService } from '../weather/weather.service';
 import { updateIsMetric } from './updaters';
@@ -15,7 +15,6 @@ import { withCurrentWeather } from './with-current.feature';
 import { withFavorites } from './with-favorites.feature';
 import { withFutureWeather } from './with-future.feature';
 import { withOptions } from './with-options.feature';
-import { AutocompleteOption } from '../weather/models/autocomplete-result';
 
 export interface State {
   isMetric: boolean;
@@ -31,7 +30,7 @@ const initialState: State = {
 
 export const Store = signalStore(
   { providedIn: 'root' },
-  withDevtools('store'),
+  // withDevtools('store'),
   withState(initialState),
   withOptions(WeatherService),
   withCurrentWeather(WeatherService),

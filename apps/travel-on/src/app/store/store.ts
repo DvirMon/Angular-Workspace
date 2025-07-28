@@ -1,4 +1,3 @@
-import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { signalStore, withMethods } from '@ngrx/signals';
 import { FavoriteHttpService } from '../favorites/favorite.https.service';
 import { withFavorites } from './features/with-favorites.feature';
@@ -6,7 +5,7 @@ import { withPlaces } from './features/with-places.feature';
 
 export const AppStore = signalStore(
   { providedIn: 'root' },
-  withDevtools('store'),
+  // withDevtools('store'),
   withPlaces(),
   withFavorites(FavoriteHttpService),
   withMethods((store) => ({
