@@ -35,10 +35,6 @@
     "firebase": "^10.14.1",
     "ngx-skeleton-loader": "^9.0.0",
     "ngx-toastr": "^18.0.0",
-    "ngxtension": "^4.0.0",
-    "node": "^20.9.0",
-    "npm": "^10.8.2",
-    "primeng": "^19.0.9",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "0.15.0"
