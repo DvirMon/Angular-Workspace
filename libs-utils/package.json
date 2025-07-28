@@ -11,34 +11,34 @@
   "main": "./lib/index.js",
   "exports": {
     "./abstract-filters": {
+      "types": "./lib/abstract-filters.d.ts",
       "import": "./lib/abstract-filters.js",
-      "require": "./lib/abstract-filters.js",
-      "types": "./lib/abstract-filters.d.ts"
+      "require": "./lib/abstract-filters.js"
     },
     "./abstract-evaluate": {
+      "types": "./lib/abstract-evaluate.d.ts",
       "import": "./lib/abstract-evaluate.js",
-      "require": "./lib/abstract-evaluate.js",
-      "types": "./lib/abstract-evaluate.d.ts"
+      "require": "./lib/abstract-evaluate.js"
     },
     "./evaluate-filters": {
+      "types": "./lib/evaluate-filter.service.d.ts",
       "import": "./lib/evaluate-filter.service.js",
-      "require": "./lib/evaluate-filter.service.js",
-      "types": "./lib/evaluate-filter.service.d.ts"
+      "require": "./lib/evaluate-filter.service.js"
     },
     "./filters.types": {
+      "types": "./lib/filter.types.d.ts",
       "import": "./lib/filter.types.js",
-      "require": "./lib/filter.types.js",
-      "types": "./lib/filter.types.d.ts"
+      "require": "./lib/filter.types.js"
     },
     "./strategies.types": {
+      "types": "./lib/strategies.types.d.ts",
       "import": "./lib/strategies.types.js",
-      "require": "./lib/strategies.types.js",
-      "types": "./lib/strategies.types.d.ts"
+      "require": "./lib/strategies.types.js"
     },
     "./providers": {
+      "types": "./lib/providers.d.ts",
       "import": "./lib/providers.js",
-      "require": "./lib/providers.js",
-      "types": "./lib/providers.d.ts"
+      "require": "./lib/providers.js"
     }
   },
   "scripts": {
