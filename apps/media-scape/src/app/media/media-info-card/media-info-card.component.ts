@@ -1,8 +1,7 @@
 import {
   KeyValuePipe,
-  NgFor,
   NgOptimizedImage,
-  TitleCasePipe,
+  TitleCasePipe
 } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -20,9 +19,8 @@ import {
 import { MatButton } from '@angular/material/button';
 import {
   MatCard,
-  MatCardActions,
   MatCardContent,
-  MatCardImage,
+  MatCardImage
 } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { FormatDatePipe } from '../../shared/pipes/formatDate.pipe';
@@ -34,14 +32,12 @@ import { AppStore } from '../../store/store';
   standalone: true,
   imports: [
     NgOptimizedImage,
-    NgFor,
     KeyValuePipe,
     TitleCasePipe,
     FormatDatePipe,
     MatCard,
     MatCardImage,
     MatCardContent,
-    MatCardActions,
     MatButton,
   ],
   templateUrl: './media-info-card.component.html',

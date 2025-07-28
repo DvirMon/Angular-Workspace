@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'to-edit-places-form',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './edit_places_form.component.html',
   styleUrl: './edit_places_form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

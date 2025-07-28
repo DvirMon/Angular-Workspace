@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {
   ChangeDetectionStrategy,
   Component,
@@ -27,11 +27,10 @@ import { FormServerError } from '../../types';
   selector: 'dom-form-input',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule,
-  ],
+    MatInputModule
+],
   templateUrl: './form-input.component.html',
   styleUrls: ['./form-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

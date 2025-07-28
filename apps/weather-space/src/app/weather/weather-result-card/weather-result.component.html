@@ -11,7 +11,7 @@
       <mat-button-toggle-group
         [value]="metric()"
         (change)="onUnitChange($event)"
-      >
+        >
         <mat-button-toggle [value]="true">Celsius</mat-button-toggle>
         <mat-button-toggle [value]="false">Fahrenheit</mat-button-toggle>
       </mat-button-toggle-group>
@@ -31,7 +31,7 @@
     </header>
 
     <section class="weather-card-info">
-      <ng-container *ngFor="let item of futureWeather().DailyForecasts">
+      @for (item of futureWeather().DailyForecasts; track item) {
         <mat-card class="forecast">
           <mat-card-header>
             <span mat-card-title>{{ item.Date | date : 'EEEE' }}</span>
@@ -40,7 +40,7 @@
             </span>
           </mat-card-header>
         </mat-card>
-      </ng-container>
+      }
     </section>
   </mat-card-content>
 </mat-card>

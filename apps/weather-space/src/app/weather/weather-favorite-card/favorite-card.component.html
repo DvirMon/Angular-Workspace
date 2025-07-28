@@ -1,16 +1,16 @@
-<ng-container *ngIf="item() as item">
+@if (item(); as item) {
   <mat-card (click)="onSelectionChanged()" class="favorite">
     <mat-card-header>
       <mat-card-title
         ><b>{{ item.LocalizedName | titlecase }}</b></mat-card-title
-      >
-      <span>{{ item.WeatherText | titlecase }}</span>
-    </mat-card-header>
-    <mat-card-content>
-      <span mat-card-subtitle>
-        {{ item.Temperature! | temperature : metric() }}
-        {{ metric() | isUnit : 'temp' }}</span
-      >
-    </mat-card-content>
-  </mat-card>
-</ng-container>
+        >
+        <span>{{ item.WeatherText | titlecase }}</span>
+      </mat-card-header>
+      <mat-card-content>
+        <span mat-card-subtitle>
+          {{ item.Temperature! | temperature : metric() }}
+          {{ metric() | isUnit : 'temp' }}</span
+          >
+        </mat-card-content>
+      </mat-card>
+    }

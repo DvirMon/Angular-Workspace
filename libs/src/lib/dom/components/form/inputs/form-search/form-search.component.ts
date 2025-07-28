@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {
   Component,
   InputSignal,
@@ -19,12 +19,11 @@ export interface SearchMediaResultsData {
   selector: 'dom-form-search',
   standalone: true,
   imports: [
-    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatFormFieldModule,
-  ],
+    MatFormFieldModule
+],
   templateUrl: './form-search.component.html',
   styleUrls: ['./form-search.component.scss'],
 })

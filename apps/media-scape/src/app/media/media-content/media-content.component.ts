@@ -1,8 +1,7 @@
 import {
-  JsonPipe,
   NgClass,
   NgTemplateOutlet,
-  TitleCasePipe,
+  TitleCasePipe
 } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -22,7 +21,6 @@ import { MediaCardComponent } from '../media-card/media-card.component';
   selector: 'ms-media-content',
   standalone: true,
   imports: [
-    JsonPipe,
     NgClass,
     NgTemplateOutlet,
     TitleCasePipe,

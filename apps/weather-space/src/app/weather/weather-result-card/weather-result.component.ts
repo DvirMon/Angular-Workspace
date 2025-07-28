@@ -1,4 +1,4 @@
-import { DatePipe, NgFor, NgIf, TitleCasePipe } from '@angular/common';
+import { DatePipe, TitleCasePipe } from '@angular/common';
 import { Component, input, model, output } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import {
@@ -38,7 +38,6 @@ export interface UnitChangeEvent {
   styleUrls: ['./weather-result.component.scss'],
   standalone: true,
   imports: [
-    NgIf,
     MatCard,
     MatCardHeader,
     MatCardTitle,
@@ -48,13 +47,12 @@ export interface UnitChangeEvent {
     MatIconButton,
     MatIconModule,
     MatCardContent,
-    NgFor,
     TitleCasePipe,
     DatePipe,
     TemperaturePipe,
     IsUnitPipe,
-    DailyTemperaturePipe,
-  ],
+    DailyTemperaturePipe
+],
 })
 export class WeatherMediaResultComponent {
   optionSelected = input.required<AutocompleteOption>();

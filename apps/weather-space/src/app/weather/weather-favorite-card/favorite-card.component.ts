@@ -1,4 +1,4 @@
-import { NgClass, NgIf, TitleCasePipe } from '@angular/common';
+import { NgClass, TitleCasePipe } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import {
@@ -25,7 +25,6 @@ export interface FavoriteEntity {
   styleUrls: ['./favorite-card.component.scss'],
   standalone: true,
   imports: [
-    NgIf,
     NgClass,
     MatCard,
     MatCardHeader,
@@ -35,8 +34,8 @@ export interface FavoriteEntity {
     MatButton,
     TitleCasePipe,
     IsUnitPipe,
-    TemperaturePipe,
-  ],
+    TemperaturePipe
+],
 })
 export class FavoriteEntityComponent {
   item = input.required<FavoriteEntity>();

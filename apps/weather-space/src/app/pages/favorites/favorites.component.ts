@@ -1,7 +1,7 @@
 import { Component, Signal, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { KeyValuePipe, NgFor } from '@angular/common';
+import { KeyValuePipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { EntityMap } from '@ngrx/signals/entities';
 import { Store } from '../../store/store';
@@ -15,7 +15,7 @@ import {
   templateUrl: './favorites.component.html',
   styleUrls: ['./favorites.component.scss'],
   standalone: true,
-  imports: [NgFor, FavoriteEntityComponent, KeyValuePipe, MatButton],
+  imports: [FavoriteEntityComponent, KeyValuePipe, MatButton],
 })
 export class FavoritesPageComponent {
   #store = inject(Store);

@@ -1,4 +1,4 @@
-import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -41,8 +41,6 @@ import { DisplayOptionLabelPipe } from '../../pipes/displayOption.pipe';
   selector: 'dom-form-autocomplete',
   standalone: true,
   imports: [
-    NgFor,
-    NgIf,
     NgTemplateOutlet,
     NgTemplateOutlet,
     FormsModule,
@@ -55,8 +53,8 @@ import { DisplayOptionLabelPipe } from '../../pipes/displayOption.pipe';
     MatSelectionList,
     OptionContentDirective,
     DisplayOptionLabelPipe,
-    DisplayOptionDisablePipe,
-  ],
+    DisplayOptionDisablePipe
+],
   templateUrl: './autocomplete.component.html',
   styleUrl: './autocomplete.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

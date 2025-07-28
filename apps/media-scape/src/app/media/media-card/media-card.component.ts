@@ -42,7 +42,6 @@ import { FormInputComponent } from '@dom/components/form/inputs/form-input';
     MatCard,
     MatCardImage,
     MatCardContent,
-    FormInputComponent,
     FormatDatePipe,
   ],
   templateUrl: './media-card.component.html',

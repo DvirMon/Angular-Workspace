@@ -5,7 +5,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { CommonModule } from '@angular/common';
+
 import {
   ChangeDetectionStrategy,
   Component,
@@ -35,7 +35,7 @@ export enum SelectState {
 @Component({
   selector: 'to-place-card-button',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule],
+  imports: [MatButtonModule, MatIconModule],
   templateUrl: './place-card-button.component.html',
   styleUrls: ['./place-card-button.component.scss'],
   animations: [

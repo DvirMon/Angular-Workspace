@@ -1,8 +1,8 @@
 <mat-form-field appearance="outline">
   @if(!!label()) {
-  <ng-container>
-    <mat-label>{{ label() }}</mat-label>
-  </ng-container>
+    <ng-container>
+      <mat-label>{{ label() }}</mat-label>
+    </ng-container>
   }
   <input
     #input
@@ -12,51 +12,51 @@
     [formControl]="control()"
     [matAutocomplete]="auto"
     (input)="onInputChanged()"
-  />
+    />
 
   <mat-autocomplete
     (optionSelected)="onOptionSelected($event)"
     [displayWith]="displayWith"
     #auto="matAutocomplete"
-  >
+    >
     @if(!multi()) {
 
-    <ng-container *ngFor="let option of options()">
-      <mat-option
-        [value]="option"
-        [disabled]="option | displayOptionDisable : displayOptionDisableWith"
-      >
-        <ng-container
+      @for (option of options(); track option) {
+        <mat-option
+          [value]="option"
+          [disabled]="option | displayOptionDisable : displayOptionDisableWith"
+          >
+          <ng-container
           *ngTemplateOutlet="
             optionContentDirective?.template || defaultTemplate;
             context: { $implicit: option }
           "
-        ></ng-container>
-      </mat-option>
-    </ng-container>
-    } @else {
-    <mat-selection-list
-      [multiple]="true"
-      (selectionChange)="onSelectionChange($event)"
-    >
-      @for(option of options(); track option) {
-
-      <mat-list-option
-        [value]="option"
-        [disabled]="option | displayOptionDisable : displayOptionDisableWith"
-        [selected]="!!selectedMap()[idKey()]"
-      >
-        <ng-container
-          *ngTemplateOutlet="
-            optionContentDirective?.template || defaultTemplate;
-            context: { $implicit: option }
-          "
-        ></ng-container>
-      </mat-list-option>
+          ></ng-container>
+        </mat-option>
       }
-    </mat-selection-list>
-    <!-- empty mat-option for display mat-list -->
-    <mat-option [style.display]="'none'"></mat-option>
+    } @else {
+      <mat-selection-list
+        [multiple]="true"
+        (selectionChange)="onSelectionChange($event)"
+        >
+        @for(option of options(); track option) {
+
+          <mat-list-option
+            [value]="option"
+            [disabled]="option | displayOptionDisable : displayOptionDisableWith"
+            [selected]="!!selectedMap()[idKey()]"
+            >
+            <ng-container
+          *ngTemplateOutlet="
+            optionContentDirective?.template || defaultTemplate;
+            context: { $implicit: option }
+          "
+            ></ng-container>
+          </mat-list-option>
+        }
+      </mat-selection-list>
+      <!-- empty mat-option for display mat-list -->
+      <mat-option [style.display]="'none'"></mat-option>
     }
   </mat-autocomplete>
 </mat-form-field>

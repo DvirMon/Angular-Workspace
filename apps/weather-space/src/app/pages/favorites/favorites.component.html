@@ -1,18 +1,18 @@
 <main>
   @if (hasFavorites()){
 
-  <ng-container *ngFor="let item of items() | keyvalue">
-    <div class="favorite-card-wrapper">
-      <weather-space-favorite-card
-        [item]="item.value"
-        [metric]="isMetric()"
-        (selectionChanged)="onSelectionChanged($event)"
-      ></weather-space-favorite-card>
-    </div>
-  </ng-container>
+    @for (item of items() | keyvalue; track item) {
+      <div class="favorite-card-wrapper">
+        <weather-space-favorite-card
+          [item]="item.value"
+          [metric]="isMetric()"
+          (selectionChanged)="onSelectionChanged($event)"
+        ></weather-space-favorite-card>
+      </div>
+    }
   } @else {
-  <section>
-    <p>No favorites has been selected</p>
-  </section>
+    <section>
+      <p>No favorites has been selected</p>
+    </section>
   }
 </main>

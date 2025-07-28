@@ -1,4 +1,4 @@
-import { JsonPipe, NgFor, NgIf } from '@angular/common';
+import { JsonPipe } from '@angular/common';
 import {
   Component,
   OnInit,
@@ -47,9 +47,7 @@ import {
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgFor,
     MatOption,
-    NgIf,
     PluckPipe,
     JsonPipe,
     MatFormField,
@@ -60,8 +58,8 @@ import {
     HighLightPipe,
     WeatherMediaResultComponent,
     FormAutocompleteComponent,
-    OptionContentDirective,
-  ],
+    OptionContentDirective
+],
 })
 export class LobbyPageComponent implements OnInit {
   #nfb = inject(NonNullableFormBuilder);

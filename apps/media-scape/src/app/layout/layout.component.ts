@@ -1,7 +1,5 @@
 import { Component, input } from '@angular/core';
 
-import { MatButton } from '@angular/material/button';
-import { MatListItem, MatNavList } from '@angular/material/list';
 import {
   MatSidenav,
   MatSidenavContainer,
@@ -19,10 +17,7 @@ import { TitleCasePipe } from '@angular/common';
   imports: [
     TitleCasePipe,
     MatToolbar,
-    MatButton,
     MatSidenav,
-    MatNavList,
-    MatListItem,
     MatSidenavContent,
     MatSidenavContainer,
   ],
