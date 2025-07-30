@@ -1,4 +1,4 @@
-import { NgIf, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { TitleCasePipe, UpperCasePipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -27,7 +27,6 @@ import { AppStore } from '../store/store';
   styleUrls: ['./layout.component.scss'],
   standalone: true,
   imports: [
-    NgIf,
     RouterModule,
     TitleCasePipe,
     UpperCasePipe,
@@ -40,8 +39,8 @@ import { AppStore } from '../store/store';
     MatSidenavContainer,
     MatIconModule,
     MatIconButton,
-    MatBadgeModule,
-  ],
+    MatBadgeModule
+],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
   

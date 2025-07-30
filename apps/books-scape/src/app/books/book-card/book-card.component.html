@@ -1,42 +1,44 @@
 @if (book()){
-<mat-card
-  class="book-card"
-  (mouseenter)="onToggleOverlay()"
-  (mouseleave)="onToggleOverlay()"
->
-  <!-- <mat-card class="book-card"> -->
-  <div class="image-overlay-container">
-    <mat-card-content>
-      <img
-        mat-card-image
-        [ngSrc]="book().imageLinks.thumbnail"
-        width="190"
-        height="280"
-      />
-      <section class="book-card-text">
-        <mat-card-title>{{ book().title }}</mat-card-title>
-        <mat-card-subtitle>{{ book().authors[0] }}</mat-card-subtitle>
-      </section>
-    </mat-card-content>
-    <mat-card-actions></mat-card-actions>
-  </div>
-
-  <div class="overlay" *ngIf="showOverlay()">
-    <mat-card class="overlay-card">
+  <mat-card
+    class="book-card"
+    (mouseenter)="onToggleOverlay()"
+    (mouseleave)="onToggleOverlay()"
+    >
+    <!-- <mat-card class="book-card"> -->
+    <div class="image-overlay-container">
       <mat-card-content>
-        <p>
-          {{ book().description | truncate : 300 }}
-        </p>
+        <img
+          mat-card-image
+          [ngSrc]="book().imageLinks.thumbnail"
+          width="190"
+          height="280"
+          />
+        <section class="book-card-text">
+          <mat-card-title>{{ book().title }}</mat-card-title>
+          <mat-card-subtitle>{{ book().authors[0] }}</mat-card-subtitle>
+        </section>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-icon-button (click)="onInfo(book())">
-          <mat-icon fontIcon="info"></mat-icon>
-        </button>
-        <button (click)="onAddToShelf(book())" mat-icon-button>
-          <mat-icon fontIcon="add"></mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</mat-card>
+      <mat-card-actions></mat-card-actions>
+    </div>
+
+    @if (showOverlay()) {
+      <div class="overlay">
+        <mat-card class="overlay-card">
+          <mat-card-content>
+            <p>
+              {{ book().description | truncate : 300 }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button (click)="onInfo(book())">
+              <mat-icon fontIcon="info"></mat-icon>
+            </button>
+            <button (click)="onAddToShelf(book())" mat-icon-button>
+              <mat-icon fontIcon="add"></mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    }
+  </mat-card>
 }

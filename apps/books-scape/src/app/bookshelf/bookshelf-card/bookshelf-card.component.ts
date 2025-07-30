@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import {
   ChangeDetectionStrategy,
   Component,
@@ -22,7 +22,6 @@ import { Book } from '../../books/books';
   selector: 'books-scape-bookshelf-card',
   standalone: true,
   imports: [
-    CommonModule,
     MatCard,
     MatCardHeader,
     MatCardTitle,
@@ -31,8 +30,8 @@ import { Book } from '../../books/books';
     MatCardActions,
     MatCardImage,
     MatIconButton,
-    MatIcon,
-  ],
+    MatIcon
+],
   templateUrl: './bookshelf-card.component.html',
   styleUrl: './bookshelf-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

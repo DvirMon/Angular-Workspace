@@ -1,4 +1,4 @@
-import { JsonPipe, NgClass, NgIf, TitleCasePipe } from '@angular/common';
+import { JsonPipe, NgClass, TitleCasePipe } from '@angular/common';
 import {
   Component,
   WritableSignal,
@@ -54,7 +54,6 @@ interface Filters {
   selector: 'books-scape-filters',
   standalone: true,
   imports: [
-    NgIf,
     NgClass,
     JsonPipe,
     TitleCasePipe,
@@ -70,8 +69,8 @@ interface Filters {
     MatSelect,
     MatIcon,
     LayoutComponent,
-    FormAutocompleteComponent,
-  ],
+    FormAutocompleteComponent
+],
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss'],
 })

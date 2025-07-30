@@ -1,4 +1,4 @@
-import { NgIf, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import {
   Component,
   input,
@@ -15,13 +15,12 @@ import { Book } from '../books';
   selector: 'books-scape-book-card',
   standalone: true,
   imports: [
-    NgIf,
     NgOptimizedImage,
     MatCardModule,
     MatIconButton,
     MatIcon,
-    TruncatePipe,
-  ],
+    TruncatePipe
+],
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss'],
 })

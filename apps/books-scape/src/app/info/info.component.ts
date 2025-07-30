@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'books-scape-f',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './info.component.html',
   styleUrl: './info.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
